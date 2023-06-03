@@ -29,6 +29,7 @@ public class MyLinkedList {
             last.next = new Node(value);
         }
     }
+
     
     private Node findLast() {
         Node current = head;
@@ -37,6 +38,7 @@ public class MyLinkedList {
         }
         return current;
     }
+
 
     public int getFirst() {
         return get(0);
@@ -88,6 +90,7 @@ public class MyLinkedList {
         }
         throw new IndexOutOfBoundsException(index);
     }
+
 
     // public int size() - получить размер списка
     
