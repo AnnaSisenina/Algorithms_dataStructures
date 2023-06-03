@@ -1,4 +1,3 @@
-package ru.gb.lesson3;
 
 public class MyLinkedList {
 
@@ -30,6 +29,16 @@ public class MyLinkedList {
             last.next = new Node(value);
         }
     }
+
+    
+    private Node findLast() {
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        return current;
+    }
+
 
     public int getFirst() {
         return get(0);
@@ -82,18 +91,71 @@ public class MyLinkedList {
         throw new IndexOutOfBoundsException(index);
     }
 
-    public MyLinkedList reversed() {
-        // TODO: 25.05.2023 Реализовать пункт 4
-        throw new UnsupportedOperationException();
-    }
 
-    private Node findLast() {
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
+    // public int size() - получить размер списка
+    
+    public int size() {
+        int size = 0;
+        if (head == null) return size;
+        
+        else {
+            Node current = head;
+            while (current != null) {
+                current = current.next;
+                size++;
+            }
+
         }
-        return current;
+        return size;
     }
+    //  public boolean contains(int value) - проверить наличие элемента в списке
+    public boolean contains(int value) {
+        if (head == null) return false;
+        else {
+            Node current = head;
+            while (current != null) {
+                if (current.value == value) return true;
+                current=current.next;
+            }
+            return false;
+        }
+        
+    }
+    // public MyLinkedList reversed() - создать НОВЫЙ список с обратным порядком
+    public MyLinkedList reversed(MyLinkedList list){
+        MyLinkedList reversedList = new MyLinkedList();
+        reversedList=reversedList.copy(list);
+        reversedList.reverseThisList();
+        return reversedList;
+    }
+    
+    public void reverseThisList () {
+        if (head.next != null){
+        Node current = head.next;
+        head.next = null;
+        while (current != null) {
+            Node next= current.next;
+            current.next = head;
+            head = current;
+            current = next;
+        }
+    }
+     }
+
+     public MyLinkedList copy (MyLinkedList list){
+        MyLinkedList copyList = new MyLinkedList();
+        Node current = list.head;
+        
+        while (current != null){
+                 copyList.add (current.value);
+                 current = current.next;
+             }
+        return copyList;
+     }
+
+     
+
+
 
     @Override
     public String toString() {
