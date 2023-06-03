@@ -1,4 +1,4 @@
-package ru.gb.lesson2;
+
 
 import java.util.Arrays;
 import java.util.Collections;

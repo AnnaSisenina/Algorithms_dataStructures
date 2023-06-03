@@ -1,4 +1,4 @@
-package ru.gb.lesson2;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
